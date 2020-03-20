@@ -13,7 +13,7 @@ TEST_CASE("Test replacement of lower-case and upper-case") {
     CHECK(find(text, "HaPpI") == string("Happi"));
     CHECK(find(text, "hAPpi") == string("Happi"));
 
-    string text2 = "x  yyy AaAa";
+    string text2 = "xaxa  yyy AaAa";
     CHECK(find(text2, "AaAa") == string("AaAa"));
     CHECK(find(text2, "AAAA") == string("AaAa"));
     CHECK(find(text2, "aaaa") == string("AaAa"));
@@ -145,4 +145,80 @@ TEST_CASE("Test replacement of i and y") {
     CHECK(find(text, "IyyI") == string("iyiy"));
     CHECK(find(text, "YYYi") == string("iyiy"));
     CHECK(find(text, "IIIy") == string("iyiy"));
+}
+
+TEST_CASE("Test excetion throwing") {
+    string text = "abcd efgh ijk lmnop qrs tu vw xyz";
+    bool thrown;
+    try{
+        find(text, "abc");
+        thrown = false;
+    } catch(exception &ex){
+        thrown = true;
+    }
+    CHECK(thrown);
+
+    try{
+        find(text, "ebcd");
+        thrown = false;
+    } catch(exception &ex){
+        thrown = true;
+    }
+    CHECK(thrown);
+
+    try{
+        find(text, "efhg");
+        thrown = false;
+    } catch(exception &ex){
+        thrown = true;
+    }
+    CHECK(thrown);
+
+    try{
+        find(text, "ygz");
+        thrown = false;
+    } catch(exception &ex){
+        thrown = true;
+    }
+    CHECK(thrown);
+
+    try{
+        find(text, "lmnoq");
+        thrown = false;
+    } catch(exception &ex){
+        thrown = true;
+    }
+    CHECK(thrown);
+
+    try{
+        find(text, "rqss");
+        thrown = false;
+    } catch(exception &ex){
+        thrown = true;
+    }
+    CHECK(thrown);
+
+    try{
+        find(text, "tb");
+        thrown = false;
+    } catch(exception &ex){
+        thrown = true;
+    }
+    CHECK(thrown);
+
+    try{
+        find(text, "va");
+        thrown = false;
+    } catch(exception &ex){
+        thrown = true;
+    }
+    CHECK(thrown);
+
+    try{
+        find(text, "xye");
+        thrown = false;
+    } catch(exception &ex){
+        thrown = true;
+    }
+    CHECK(thrown);
 }
