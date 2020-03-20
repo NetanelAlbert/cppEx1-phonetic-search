@@ -3,8 +3,6 @@
 
 using namespace std;
 
-class phonetic{
-    public:
-       static string find(string s, string word);
-
+namespace phonetic{
+    string find(string s, string word);
 };

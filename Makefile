@@ -1,6 +1,6 @@
 #!make -f
 
-CXX=clang++ 
+CXX=clang++
 CXXFLAGS=-std=c++2a
 
 HEADERS=PhoneticFinder.hpp
