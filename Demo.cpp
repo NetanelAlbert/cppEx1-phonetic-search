@@ -1,5 +1,5 @@
 /**
- * Demo program for Gimatriya calculation.
+ * Demo program for PhoneticFinder.
  * 
  * Date: 2020-02
  */

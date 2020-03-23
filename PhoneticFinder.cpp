@@ -1,3 +1,8 @@
+/**
+Author - Netanel albert
+Date - 2020-3
+*/
+
 #include "PhoneticFinder.hpp"
 
 using namespace std;
@@ -37,6 +42,25 @@ bool equals(string s, string t){
     return true;
 }
 
+struct DidntFindException : public exception {
+    string word;
+    DidntFindException(string w){
+        word = w;
+    }
+    const char * what () const throw () {
+      return "Did not find the word '";// << word << "' in the text";
+    }
+};
+
+struct MyException : public exception {
+    MyException& operator = (const MyException& str){
+        return *this;
+    }
+   const char * what () const throw () {
+      return "C++ Exception";
+   }
+};
+
 string phonetic::find(string s, string word){
     string tmp = "";
     for(size_t i = 0; i <= s.length(); i++){
@@ -48,6 +72,8 @@ string phonetic::find(string s, string word){
         } else 
             tmp += s.at(i);
     }
-    throw runtime_error("Did not find the word '"+word+"' in the text");
+    //throw runtime_error("Did not find the word '"+word+"' in the text");
+    //throw DidntFindException(word);
+    throw MyException();
 }
 
