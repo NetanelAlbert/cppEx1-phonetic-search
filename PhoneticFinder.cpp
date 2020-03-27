@@ -43,6 +43,10 @@ bool equals(string s, string t){
 }
 
 string phonetic::find(string s, string word){
+
+    if(word == "" || word == " ")
+        throw runtime_error("Can't search for an empty word");
+
     string tmp = "";
     for(size_t i = 0; i <= s.length(); i++){
         if(i == s.length() || s.at(i) == ' '){
